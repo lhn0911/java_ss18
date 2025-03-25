@@ -16,6 +16,7 @@ public class Bai5 {
                 filteredList.add(entry);
             }
         }
+
         filteredList.sort(Map.Entry.comparingByValue());
         for (Map.Entry<String, Double> entry : filteredList) {
             System.out.println("Tên sản phẩm: " + entry.getKey() + " - Giá: " + entry.getValue());

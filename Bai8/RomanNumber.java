@@ -1,26 +1,9 @@
-package ss18;
+package ss18.Bai8;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-public class Bai8 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int n;
-
-        do {
-            System.out.print("Nhập số nguyên dương : ");
-            n = scanner.nextInt();
-            if (n < 1 || n > 3999) {
-                System.out.println("Số nhập vào không hợp lệ! Vui lòng nhập lại.");
-            }
-        } while (n < 1 || n > 3999);
-
-        String romanNumber = convertToRoman(n);
-        System.out.println("Số La Mã tương ứng: " + romanNumber);
-    }
-
+public class RomanNumber {
     public static String convertToRoman(int num) {
         LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
         map.put(1000, "M");
