@@ -77,39 +77,68 @@ public class Bai10 {
     }
 
     private static void calculateTotalSalary() {
-        double totalSalary = employeeMap.values().stream().mapToDouble(Employee::getSalary).sum();
+        double totalSalary = 0;
+        for (Employee employee : employeeMap.values()) {
+            totalSalary += employee.getSalary();
+        }
         System.out.println("Tổng lương của tất cả nhân viên: " + totalSalary);
     }
+
 
     private static void calculateAverageSalary() {
         if (employeeMap.isEmpty()) {
             System.out.println("Không có nhân viên nào để tính lương trung bình.");
             return;
         }
-        double totalSalary = employeeMap.values().stream().mapToDouble(Employee::getSalary).sum();
-        double averageSalary = totalSalary / employeeMap.size();
+        double totalSalary = 0;
+        int count = 0;
+        for (Employee employee : employeeMap.values()) {
+            totalSalary += employee.getSalary();
+            count++;
+        }
+        double averageSalary = totalSalary / count;
         System.out.println("Lương trung bình của nhân viên: " + averageSalary);
     }
+
 
     private static void findHighestSalaryEmployee() {
         if (employeeMap.isEmpty()) {
             System.out.println("Không có nhân viên nào.");
             return;
         }
-        Employee highestSalaryEmployee = employeeMap.values().stream()
-                .max((e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()))
-                .orElse(null);
+
+        Employee highestSalaryEmployee = null;
+        double maxSalary = 0;
+
+        for (Employee employee : employeeMap.values()) {
+            if (employee.getSalary() > maxSalary) {
+                maxSalary = employee.getSalary();
+                highestSalaryEmployee = employee;
+            }
+        }
+
         System.out.println("Nhân viên có lương cao nhất: " + highestSalaryEmployee);
     }
+
 
     private static void findLowestSalaryEmployee() {
         if (employeeMap.isEmpty()) {
             System.out.println("Không có nhân viên nào.");
             return;
         }
-        Employee lowestSalaryEmployee = employeeMap.values().stream()
-                .min((e1, e2) -> Double.compare(e1.getSalary(), e2.getSalary()))
-                .orElse(null);
+
+        Employee lowestSalaryEmployee = null;
+        double minSalary = 0;
+
+        for (Employee employee : employeeMap.values()) {
+            if (employee.getSalary() < minSalary) {
+                minSalary = employee.getSalary();
+                lowestSalaryEmployee = employee;
+            }
+        }
+
         System.out.println("Nhân viên có lương thấp nhất: " + lowestSalaryEmployee);
     }
+
+
 }

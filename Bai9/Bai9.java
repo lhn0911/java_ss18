@@ -139,7 +139,11 @@ public class Bai9 {
     }
 
     private static void calculateTotalValue() {
-        double totalValue = productMap.values().stream().mapToDouble(Product::getTotalValue).sum();
+        double totalValue = 0;
+        for (Product product : productMap.values()) {
+            totalValue += product.getTotalValue();
+        }
         System.out.println("Tổng giá trị kho hàng: " + totalValue);
     }
+
 }

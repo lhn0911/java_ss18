@@ -20,14 +20,14 @@ public class RomanNumber {
         map.put(4, "IV");
         map.put(1, "I");
 
-        StringBuilder roman = new StringBuilder();
+        StringBuilder romanNumber = new StringBuilder();
 
         for (Map.Entry<Integer, String> entry : map.entrySet()) {
             while (num >= entry.getKey()) {
-                roman.append(entry.getValue());
+                romanNumber.append(entry.getValue());
                 num -= entry.getKey();
             }
         }
-        return roman.toString();
+        return romanNumber.toString();
     }
 }
